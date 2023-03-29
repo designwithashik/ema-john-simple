@@ -35,8 +35,20 @@ const Shop = () => {
 
     const handleAddToCart = (product) => {
         // console.log(product)
-        const cart = [...cartProducts, product];
-        setCartProducts(cart);
+        let newCart = [];
+        // const newCart = [...cartProducts, product];
+
+        const exists = cartProducts.find(pd => pd.id === product.id)
+        if (!exists) {
+            product.quantity = 1;
+            newCart = [...cartProducts, product]
+        }
+        else {
+            exists.quantity = exists.quantity + 1;
+            const remaining = cartProducts.filter(pd => pd.id !== product.id)
+            newCart = [...remaining, exists]
+        }
+        setCartProducts(newCart);
         addToDb(product.id);
         
     }
