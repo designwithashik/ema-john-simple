@@ -1,18 +1,27 @@
 .shop-container {
     display: grid;
     grid-template-columns: 4fr 1fr;
+    /* position: relative; */
 }
 
 .products-container {
     margin: 50px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 45px;
 }
-
-.cart-container{
-    padding-top: 30px;
-    font-weight: 700;
-    background-color: hsla(36, 100%, 50%, 0.3);
-
+.proceed-link{
+    text-decoration: none;
+}
+.btn-proceed {
+    background: #FF9900;
+    width: 90%;
+    height: 56px;
+    font-size: 21px;
+    margin: 10px auto;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

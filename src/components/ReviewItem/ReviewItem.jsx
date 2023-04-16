@@ -1,20 +1,21 @@
 import React from 'react';
-import './ReviewItem.css'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import './ReviewItem.css';
+
 const ReviewItem = ({ product, handleRemoveFromCart }) => {
-    const { name, id, img, price, quantity } = product;
+    const { id, img, price, name, quantity } = product;
     return (
         <div className='review-item'>
             <img src={img} alt="" />
-            <div className='review-details'
-            >
-                <h4>{name}</h4>
-                <p>Price: <span>${price}</span></p>
-                <p>Quantity: <span>{quantity}</span></p>
+            <div className='review-details'>
+                <p className='product-title'>{name}</p>
+                <p>Price: <span className='orange-text'>${price}</span></p>
+                <p>Order Quantity: <span className='orange-text'>{quantity}</span></p>
             </div>
-            <button onClick={()=>handleRemoveFromCart(id)}><FontAwesomeIcon className='icon' icon={faTrash}></FontAwesomeIcon></button>
+            <button onClick={() => handleRemoveFromCart(id)} className='btn-delete'>
+                <FontAwesomeIcon className='delete-icon' icon={faTrashAlt} />
+            </button>
         </div>
     );
 };
